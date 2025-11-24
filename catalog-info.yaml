@@ -1,0 +1,69 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  # Derived from repository name
+  name: spring-petclinic
+  
+  # Based on README and repository purpose
+  description: Sample Spring Boot web application demonstrating best practices for building enterprise Java applications with pet clinic management features.
+  
+  tags:
+    # Primary programming language (auto-detected from pom.xml)
+    - java
+    # Component category (determined from web UI presence and Thymeleaf templates)
+    - website
+    # Visibility (sample/demo repository, not production service)
+    - internal
+    # Additional technology tags
+    - spring-boot
+    - thymeleaf
+    - jpa
+    - maven
+  
+  links:
+    - url: https://github.com/gitpod-samples/spring-petclinic
+      title: GitHub Repository
+    # TODO: Add production URL if deployed (e.g., staging or demo environment)
+    # - url: https://petclinic.example.com
+    #   title: Production Service
+    # TODO: Add monitoring dashboard if available
+    # - url: https://grafana.example.com/d/petclinic
+    #   title: Monitoring Dashboard
+  
+  annotations:
+    # GitHub repository path (auto-detected from git remote)
+    github.com/project-slug: gitpod-samples/spring-petclinic
+    # TODO: Add PagerDuty service ID if applicable
+    # pagerduty.com/service-id: PXYZ123
+    # TODO: Add SonarQube project key if code quality scanning is configured
+    # sonarqube.org/project-key: spring-petclinic
+    # TODO: Add CI/CD pipeline reference if using CircleCI or similar
+    # circleci.com/project-slug: github/gitpod-samples/spring-petclinic
+
+spec:
+  # Component type: website (has web UI with Thymeleaf templates and Bootstrap)
+  type: website
+  
+  # Lifecycle: experimental (sample/demo application, actively maintained but not production service)
+  # This is a demonstration application maintained by Gitpod for educational purposes
+  lifecycle: experimental
+  
+  # TODO: REQUIRED - Specify the team responsible for this component
+  # Format: team:team-name (must match team identifier in Backstage org structure)
+  # Example: team:platform-engineering or team:developer-experience
+  # Contact Platform Engineering if your team is not yet defined in Backstage
+  owner: team:REPLACE_WITH_TEAM_NAME
+  
+  # TODO: OPTIONAL - Specify the system this component belongs to (if applicable)
+  # Note: spec.system is only required for components with spec.type: service
+  # Since this is a website/demo application, system may not be applicable
+  # If this belongs to a larger system, uncomment and specify:
+  # system: REPLACE_WITH_SYSTEM_NAME
+  
+  # TODO: OPTIONAL - Add component dependencies if known
+  # Dependencies can be inferred from the application but require validation
+  # Uncomment and update as needed:
+  # dependsOn:
+  #   - resource:h2-database
+  #   - resource:mysql-database
+  #   - resource:postgres-database
