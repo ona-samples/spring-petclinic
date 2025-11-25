@@ -1,0 +1,34 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: spring-petclinic
+  description: Sample Spring Boot application demonstrating a veterinary clinic management system with pet, owner, and visit tracking.
+  tags:
+    # Primary language (detected from pom.xml and source files)
+    - java
+    # Component category (web application with REST endpoints and UI)
+    - service
+    # TODO: Set visibility - choose one: 'internal' or 'external'
+    # 'internal' = only used within the organization
+    # 'external' = exposed to external users/customers
+    - internal
+  links:
+    - url: https://github.com/gitpod-samples/spring-petclinic
+      title: GitHub Repository
+    - url: https://spring-petclinic.github.io/
+      title: Project Documentation
+  annotations:
+    github.com/project-slug: gitpod-samples/spring-petclinic
+spec:
+  # Web application with REST controllers and Thymeleaf UI
+  type: service
+  # Sample/demo application - actively maintained but not a production service
+  lifecycle: experimental
+  # TODO: Replace with your team identifier from the org structure
+  # Format: team:team-name (e.g., team:platform-engineering, team:developer-experience)
+  # Contact Platform Engineering if your team is not yet defined in Backstage
+  owner: team:REPLACE_WITH_TEAM_NAME
+  # TODO: Assign to a system if this component belongs to a larger product area
+  # Format: system-name (e.g., developer-tools, sample-applications)
+  # Remove this field if not applicable, or contact Platform Engineering to create a new system
+  system: REPLACE_WITH_SYSTEM_NAME
