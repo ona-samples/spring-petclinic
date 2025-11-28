@@ -11,6 +11,8 @@ tasks:
     init:
         command: |
             ./mvnw clean install -U -DskipTests
+            JETBRAINS_SERVER=$(find /usr/local/gitpod/shared/jetbrains/apps -name "remote-dev-server.sh" | head -1)
+            $JETBRAINS_SERVER warmup /workspaces/spring-petclinic/
         name: "Build"
         triggeredBy:
             - manual
