@@ -1,9 +1,23 @@
-image:
-  file: ./.devcontainer/Dockerfile
+image: 
+  file: .gitpod.Dockerfile
+
 tasks:
-  - before: sudo usermod -a -G sdkman gitpod && sudo usermod -a -G nvm gitpod && sudo chown -R gitpod /usr/local/sdkman /usr/local/share/nvm
-  - init: ./mvnw install
+  - init: ./mvnw clean install -U -DskipTests
+    command: ./mvnw spring-boot:run
+    name: Run PetClinic app
+
+ports:
+  - port: 8080
+    onOpen: open-preview
+
 vscode:
   extensions:
-  - vscjava.vscode-java-pack
-  - redhat.vscode-xml
+    - pivotal.vscode-spring-boot
+    - vscjava.vscode-java-pack
+
+jetbrains:
+  intellij:
+    plugins:
+      - com.haulmont.jpab
+    prebuilds:
+      version: both
