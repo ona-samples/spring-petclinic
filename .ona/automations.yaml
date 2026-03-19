@@ -1,6 +1,7 @@
 tasks:
     run:
         command: |
+            ona env port open 8080 --name app
             ./mvnw spring-boot:run
         dependsOn:
             - init
