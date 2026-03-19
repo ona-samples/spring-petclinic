@@ -99,9 +99,13 @@ class OwnerController {
 		if (lastName == null) {
 			lastName = ""; // empty string signifies broadest possible search
 		}
+		String firstName = owner.getFirstName();
+		if (firstName == null) {
+			firstName = ""; // empty string signifies broadest possible search
+		}
 
-		// find owners by last name
-		Page<Owner> ownersResults = findPaginatedForOwnersLastName(page, lastName);
+		// find owners by first name and last name
+		Page<Owner> ownersResults = findPaginatedForOwners(page, firstName, lastName);
 		if (ownersResults.isEmpty()) {
 			// no owners found
 			result.rejectValue("lastName", "notFound", "not found");
@@ -115,6 +119,8 @@ class OwnerController {
 		}
 
 		// multiple owners found
+		model.addAttribute("firstName", firstName);
+		model.addAttribute("lastName", lastName);
 		return addPaginationModel(page, model, ownersResults);
 	}
 
@@ -127,10 +133,10 @@ class OwnerController {
 		return "owners/ownersList";
 	}
 
-	private Page<Owner> findPaginatedForOwnersLastName(int page, String lastname) {
+	private Page<Owner> findPaginatedForOwners(int page, String firstName, String lastName) {
 		int pageSize = 5;
 		Pageable pageable = PageRequest.of(page - 1, pageSize);
-		return owners.findByLastNameStartingWith(lastname, pageable);
+		return owners.findByFirstNameStartingWithAndLastNameStartingWith(firstName, lastName, pageable);
 	}
 
 	@GetMapping("/owners/{ownerId}/edit")
