@@ -31,6 +31,13 @@
     <maven-checkstyle.version>3.6.0</maven-checkstyle.version>
     <nohttp-checkstyle.version>0.0.11</nohttp-checkstyle.version>
     <spring-format.version>0.0.47</spring-format.version>
+
+    <!-- CVE-2026-29062 & GHSA-72hv-8253-57qq: jackson-core DoS vulnerabilities -->
+    <jackson-bom.version>3.1.0</jackson-bom.version>
+    <!-- jackson 3.1.0 requires jackson-annotations 2.21+ -->
+    <jackson-2-bom.version>2.21.2</jackson-2-bom.version>
+    <!-- CVE-2026-1225: logback-core arbitrary class instantiation via malicious config -->
+    <logback.version>1.5.25</logback.version>
   </properties>
 
   <licenses>
