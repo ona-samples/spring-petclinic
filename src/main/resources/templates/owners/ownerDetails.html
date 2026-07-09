@@ -51,7 +51,11 @@
           <dt th:text="#{name}">Name</dt>
           <dd th:text="${pet.name}"></dd>
           <dt th:text="#{birthDate}">Birth Date</dt>
-          <dd th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
+          <dd>
+            <span th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></span>
+            <span th:if="${pet.age != null}" class="text-muted"
+              th:text="'(' + ${pet.age} + (${pet.age == 1} ? ' year old)' : ' years old)')"></span>
+          </dd>
           <dt th:text="#{type}">Type</dt>
           <dd th:text="${pet.type}"></dd>
         </dl>
