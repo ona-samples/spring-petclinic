@@ -1,0 +1,17 @@
+tasks:
+    run:
+        command: |
+            ./mvnw spring-boot:run
+        dependsOn:
+            - init
+        name: "Run PetClinic App"
+        triggeredBy:
+            - postDevcontainerStart
+            - manual
+    init:
+        command: |
+            ./mvnw clean install -U -DskipTests
+        name: "Build"
+        triggeredBy:
+            - manual
+            - prebuild
